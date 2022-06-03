@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -40,8 +42,10 @@ public class Prestamo implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPres;
 	private String nombre;
+	
 	private double valorCuota;
-
+	@Min(12)
+	@Max(240)
 	private double cantCuota;
 
 	public double getValorCuota() {
